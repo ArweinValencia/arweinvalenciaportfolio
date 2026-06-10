@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Arwein | Neon Dark Portfolio</title>
+    <!-- html2canvas + jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Three.js + Vanta.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+    
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-rocket"></i> arwein</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="right-controls">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch">
+                        <input type="checkbox" id="themeCheckbox">
+                        <span class="slider">
+                            <i class="fas fa-sun sun-icon"></i>
+                            <i class="fas fa-moon moon-icon"></i>
+                        </span>
+                    </label>
+                </div>
+                <div class="settings-wrapper">
+                    <button class="settings-btn" id="settingsBtn"><i class="fas fa-cog"></i></button>
+                    <div class="dropdown-menu" id="settingsDropdown">
+                        <div class="dropdown-item" id="resetPrefBtn"><i class="fas fa-undo-alt"></i> Reset Preferences
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item" style="font-weight:600;"><i class="fas fa-text-height"></i> Text Size
+                        </div>
+                        <div class="dropdown-item font-size-option" data-font-size="small"><i class="fas fa-font"></i>
+                            Small</div>
+                        <div class="dropdown-item font-size-option" data-font-size="medium"><i class="fas fa-font"></i>
+                            Medium (Default)</div>
+                        <div class="dropdown-item font-size-option" data-font-size="large"><i class="fas fa-font"></i>
+                            Large</div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item" id="adminPanelBtn"><i class="fas fa-lock"></i> Admin Panel</div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="aboutBtn"><i class="fas fa-info-circle"></i> About</a>
+                        <a href="#" class="dropdown-item" id="helpBtn"><i class="fas fa-question-circle"></i> Help</a>
+                    </div>
+                </div>
+                <button class="menu-toggle" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div id="vanta-geometric-bg"></div>
+            <img src="./img/Arwein.jpg" alt="Arwein Valencia" class="hero-profile-pic"
+                onerror="this.src='https://placehold.co/160x160?text=Arwein+Avatar'">
+            <h1>Arwein Villar Valencia</h1>
+            <p class="tagline">creative developer · network architect · visual storyteller</p>
+            <div class="button-group"><button id="previewResumeBtn" class="resume-btn"><i class="fas fa-eye"></i>
+                    Preview & Download PDF Resume</button></div>
+            <div
+                style="margin-top:1.2rem; background:rgba(0,0,0,0.4); backdrop-filter:blur(3px); padding:0.3rem 1rem; border-radius:40px; display:inline-block; color:white;">
+                <i class="fas fa-info-circle"></i> Click to preview & generate professional PDF resume</div>
+        </section>
+        <section id="about">
+            <h2 class="section-title">About me</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:2.5rem; align-items:center;">
+                <div style="flex:1; min-width:160px; text-align:center;">
+                    <div class="profile-circle"><i class="fas fa-user-astronaut"></i></div>
+                </div>
+                <div style="flex:3;">
+                    <p style="font-size:1.2rem;">I'm Arwein — a passionate developer, certified network specialist, and
+                        design enthusiast. Equipped with Cisco certifications, advanced seminar training, and real-world
+                        startup validation experience, I build digital solutions that merge technical depth with
+                        creative impact.</p>
+                    <p><i class="fas fa-map-pin" style="color:var(--accent);"></i> based in Davao · open for freelance &
+                        collabs</p>
+                </div>
+            </div>
+        </section>
+        <section id="achievements" class="section-alt">
+            <h2 class="section-title">📜 certifications & achievements</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Cisco Certified: Packet Tracer & Ethical Hacker</h3>
+                    <p class="issuer">Cisco Networking Academy · Davao del Norte State College</p>
+                    <p>Getting Started with Cisco Packet Tracer + Ethical Hacker certification — network simulation,
+                        cybersecurity foundations.</p><button class="credential-btn" data-cert="cisco_combined"><i
+                            class="far fa-credit-card"></i> view credentials</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Advanced Seminar Series (BSIT)</h3>
+                    <p class="issuer">Davao del Norte State College · Day 1 & 2</p>
+                    <p>“Journey from Science Practitioner to IT Specialist” (Oct 8, 2025) & “The Power of Color in
+                        Graphic Design” (Nov 5, 2025).</p><button class="credential-btn" data-cert="adv_seminar"><i
+                            class="far fa-credit-card"></i> view certificates</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>BUGSAI TBI LAWIG Cohort 1</h3>
+                    <p class="issuer">Customer Validation & Lean Canvas Development</p>
+                    <p>Startup lab training: customer discovery, lean canvas methodology, and validation strategies
+                        (July 9-10, 2025).</p><button class="credential-btn" data-cert="bugsailearn"><i
+                            class="far fa-credit-card"></i> view credentials</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Level App 2.0 & DOST XI Pitching Competition</h3>
+                    <p class="issuer">Startup Presenter · Rescue Track</p>
+                    <p>Active participation in Level App 2.0 exhibit (May 2025) & Regional Science & Tech Week Startup
+                        Pitching (Sept 2025).</p><button class="credential-btn" data-cert="pitching"><i
+                            class="far fa-credit-card"></i> view recognition</button>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <h2 class="section-title">🛠️ featured projects</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <h3>WeatherFlow</h3>
+                    <p>Real-time weather with dynamic backgrounds.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-store"></i></div>
+                    <h3>Artify Market</h3>
+                    <p>Minimalistic e‑commerce concept.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>TaskFlow</h3>
+                    <p>Drag & drop task manager.</p>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="section-alt">
+            <h2 class="section-title">⚡ core skills</h2>
+            <div class="skills-pills"><span class="skill-pill"><i class="fab fa-html5"></i> HTML5</span><span
+                    class="skill-pill"><i class="fab fa-css3-alt"></i> CSS3</span><span class="skill-pill"><i
+                        class="fab fa-js"></i> JavaScript</span><span class="skill-pill"><i
+                        class="fas fa-paintbrush"></i> Canva</span><span class="skill-pill"><i class="fab fa-figma"></i>
+                    Figma</span></div>
+        </section>
+        <section id="contact">
+            <h2 class="section-title">📬 let's connect</h2>
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group"><input type="text" placeholder="your name" required id="contactName">
+                        </div>
+                        <div class="form-group"><input type="email" placeholder="email address" required
+                                id="contactEmail"></div>
+                        <div class="form-group"><textarea rows="3" placeholder="write a message..."
+                                id="contactMsg"></textarea></div><button type="submit" class="submit-btn"><i
+                                class="far fa-paper-plane"></i> send message</button>
+                    </form>
+                </div>
+                <div class="contact-info"><i class="fas fa-envelope-open-text"
+                        style="font-size:1.7rem; color:var(--accent);"></i>
+                    <p>direct contact</p>
+                    <div class="fake-email"><i class="far fa-envelope"></i> arweinvalencia15@gmail.com</div>
+                    <div class="social-icons"><a href="#"><i class="fab fa-github"></i></a><a href="#"><i
+                                class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Arwein Villar Valencia — crafted with <i class="fas fa-heart" style="color:var(--accent);"></i> neon
+            dark mode</p><a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="admin-modal">
+        <div class="glass-card">
+            <span class="close-modal-icon" id="closeAdminModalBtn">&times;</span>
+            <h3><i class="fas fa-lock"></i> Admin Access</h3>
+            <div class="form-group"><input type="text" id="adminUsername" placeholder="Username" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <div class="password-wrapper"><input type="password" id="adminPassword" placeholder="Password"><button
+                        type="button" class="toggle-password" id="togglePasswordBtn"><i class="fas fa-eye"></i></button>
+                </div>
+            </div>
+            <div id="loginError" style="color:#e74c3c; font-size:0.8rem; margin-bottom:0.5rem;"></div>
+            <button id="adminLoginBtn" class="submit-btn" style="width:100%;">Login</button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal with Search, Filters, Pagination, Delete -->
+    <div id="adminDashboardModal" class="admin-modal">
+        <div class="glass-card dashboard-glass">
+            <span class="close-modal-icon" id="closeDashboardModalBtn">&times;</span>
+            <h3><i class="fas fa-envelope"></i> Messages from Contact Form</h3>
+            <div class="dashboard-controls">
+                <div class="search-box"><input type="text" id="searchMessages"
+                        placeholder="🔍 Search by name, email or message..."></div>
+                <div class="filter-group">
+                    <select id="yearFilter">
+                        <option value="">All Years</option>
+                    </select>
+                    <select id="monthFilter">
+                        <option value="">All Months</option>
+                    </select>
+                </div>
+            </div>
+            <div id="messagesList" class="message-list"></div>
+            <div class="pagination" id="paginationControls">
+                <button id="prevPageBtn" disabled>← Previous</button>
+                <span id="pageInfo">Page 1</span>
+                <button id="nextPageBtn">Next →</button>
+            </div>
+            <div class="admin-actions"><button id="logoutAdminBtn" class="credential-btn">Logout</button></div>
+        </div>
+    </div>
+
+    <div id="certModal" class="modal">
+        <div class="modal-content"><span class="close-modal">&times;</span><img id="modalCertImg" src="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+    <div id="resumePreviewModal" class="preview-modal">
+        <div class="preview-container">
+            <div class="preview-header">
+                <h3><i class="fas fa-file-pdf"></i> Resume Preview — Arwein Valencia</h3>
+                <div class="preview-actions"><button id="downloadPdfFromPreviewBtn"><i class="fas fa-download"></i>
+                        Download as PDF</button><button class="close-preview" id="closePreviewModalBtn"><i
+                            class="fas fa-times"></i></button></div>
+            </div>
+            <div class="preview-body" id="previewBodyContainer">
+                <div id="resumeCaptureContainer" class="resume-card-preview"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
